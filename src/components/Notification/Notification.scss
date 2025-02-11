@@ -1,16 +1,13 @@
-%center {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
+@use '../../index' as *;
+
 .notification{
     display: grid;
-    grid-template-columns: 15% 70% 15%;
-    width: 100%;
+    grid-template-columns: 15% auto 15%;
+    width: 90%;
     height: 100px;
     margin-bottom: 15px;
     background-color: #183153;
-    border-radius: 20px;
+    border-radius: 20px;    
 }
 .notification{
 

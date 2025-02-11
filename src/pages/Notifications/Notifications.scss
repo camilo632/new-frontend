@@ -1,4 +1,22 @@
+@use '../../index' as *;
+
 .notification-list{
     min-height: calc(100vh - 50px);
-    padding: 30px;
+    padding: 20px;
+    @extend %center;
+    flex-direction: column;
+}
+.no-notifications{
+    @extend %center;
+    flex-direction: column;
+    gap: 20px;
+}
+.no-notifications{
+    img{
+        height: 150px;
+    }
+    p{
+        color: lightgray;
+        font-size: var(--xl);
+    }
 }

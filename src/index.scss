@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 :root {
 	--dark: #343a40;
@@ -28,10 +28,14 @@ body {
 	margin: 0;
 }
 
-
-
-@media (max-width: 1200px) {
-  html {
-      cursor: none; 
-  }
+%center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
+
+// @media (max-width: 1200px) {
+//   html {
+//       cursor: none; 
+//   }
+// }
