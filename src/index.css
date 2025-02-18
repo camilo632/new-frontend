@@ -1,8 +1,11 @@
+@import "tailwindcss";
+
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  /* font-family: 'Poppins', sans-serif; */
+  /* font-family: 'Inter', sans-serif; */
+  /* font-family: 'Roboto', sans-serif; */
+  font-family: 'Nunito', sans-serif;
 }
 :root {
 	--dark: #343a40;
@@ -24,18 +27,9 @@
 	--xxl: 50px;
 	--bold: 800;
 }
-body {
-	margin: 0;
-}
 
-%center {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-// @media (max-width: 1200px) {
-//   html {
-//       cursor: none; 
-//   }
-// }
+@media (max-width: 1200px) {
+	html, body, * {
+	  cursor: none; 
+	}
+  }

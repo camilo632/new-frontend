@@ -1,17 +1,29 @@
 import './Home.scss'
-import { motion } from 'framer-motion';
+// import { motion } from "motion/react"
+import { useNavigate } from 'react-router-dom';
+// @ts-ignore
+import { useSwipeable } from 'react-swipeable';
 
 function Home() {
 
+  const navigate = useNavigate();
+
+  const swipeHandlers = useSwipeable({
+    onSwipedLeft: () => {
+      navigate('/notifications');
+    },
+    onSwipedRight: () => {
+      navigate('/profiles');
+    }
+  });
+
   return (
-    <motion.div
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    exit={{ opacity: 0 }}
-    transition={{ duration: 1 }}
+    <div
+    {...swipeHandlers}
+    className='home'
     >
-      Contenido que se desvanece
-    </motion.div>
+      HOME
+    </div>
   )
 }
 

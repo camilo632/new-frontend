@@ -1,43 +1,13 @@
-@use '../../index' as *;
+@use '../../App' as *;
 
 .notification{
     display: grid;
-    grid-template-columns: 15% auto 15%;
+    grid-template-columns: 15% auto 40%;
     width: 90%;
-    height: 100px;
-    margin-bottom: 15px;
-    background-color: #183153;
-    border-radius: 20px;    
 }
-.notification{
-
-    div{
-        height: 100%;
-        width: 100%;
-    }
-    div:nth-of-type(1){
-        @extend %center
-    }
-    div:nth-of-type(2){
-        display: flex;
-        justify-content: space-evenly;
-        align-items: flex-start;
-        flex-direction: column;
-    }
-    div:nth-of-type(3){
-        @extend %center
-    }
+.notification{  
     img{
         height: 70px;
-    }
-    p{
-        color: var(--white);
-    }
-    .notification-name{
-        font-size: var(--lg);
-    }
-    .notification-device{
-        font-size: var(--md);
     }
 }
 

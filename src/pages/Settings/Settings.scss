@@ -1,0 +1,8 @@
+.settings-container{
+    height: calc(100vh - 50px);
+}
+.settings-div{
+    display: grid;
+    grid-template-columns: 20% 20% auto 20%;
+    place-items: center;
+}
