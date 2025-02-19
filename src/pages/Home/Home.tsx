@@ -14,7 +14,9 @@ function Home() {
     },
     onSwipedRight: () => {
       navigate('/profiles');
-    }
+    },
+    delta: 50,  
+    trackMouse: true, 
   });
 
   return (

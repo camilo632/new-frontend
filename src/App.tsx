@@ -19,14 +19,25 @@ interface NotificationType {
   id: number;
   img: string;
   text: string;
+  active: boolean;
 }
 
 const originalNotifications: NotificationType[] = [
-  { id: 1, img: alarm, text: "Alarm 1" },
-  { id: 2, img: alarm, text: "Alarm 2" },
-  { id: 3, img: alarm, text: "Alarm 3" },
-  { id: 4, img: warning, text: "Warning 1" },
-  { id: 5, img: warning, text: "Warning 2" },
+  { id: 1, img: alarm, text: "Alarm 1", active: true },
+  { id: 2, img: alarm, text: "Alarm 2", active: true },
+  { id: 4, img: warning, text: "Warning 1", active: true },
+  { id: 15, img: warning, text: "Warning 7", active: false },
+  { id: 16, img: warning, text: "Warning 8", active: false },
+  { id: 5, img: warning, text: "Warning 2", active: false },
+  { id: 6, img: warning, text: "Warning 3", active: false },
+  { id: 7, img: warning, text: "Warning 4", active: false },
+  { id: 8, img: warning, text: "Warning 5", active: false },
+  { id: 9, img: warning, text: "Warning 6", active: false },
+  { id: 10, img: alarm, text: "Alarm 4", active: false },
+  { id: 11, img: alarm, text: "Alarm 5", active: false },
+  { id: 12, img: alarm, text: "Alarm 6", active: false },
+  { id: 13, img: alarm, text: "Alarm 7", active: false },
+  { id: 14, img: alarm, text: "Alarm 8", active: false },
 ];
 
 function App() {
@@ -72,7 +83,7 @@ function App() {
       <Navbar activeNotification={activeNotification} />
         <Routes>
           <Route path="/" element={<Home/>} />
-          <Route path="/notifications" element={<Notifications notifications={notifications}/>} />
+          <Route path="/notifications" element={<Notifications notifications={originalNotifications}/>} />
           <Route path="/settings" element={<Settings/>} />
           <Route path="/profiles" element={<Profiles/>} />
         </Routes>

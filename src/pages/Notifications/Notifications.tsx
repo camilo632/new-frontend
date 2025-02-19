@@ -10,6 +10,7 @@ interface NotificationType {
   id: number;
   img: string;
   text: string;
+  active: boolean;
 }
 
 interface NotificationsProps {
@@ -27,7 +28,9 @@ function Notifications({ notifications }: NotificationsProps) {
     },
     onSwipedRight: () => {
       navigate('/');
-    }
+    },
+    delta: 50,  
+    trackMouse: true, 
   });
 
   return (
@@ -40,7 +43,8 @@ function Notifications({ notifications }: NotificationsProps) {
               <Notification 
                 key={notification.id} 
                 img={notification.img} 
-                text={notification.text} 
+                text={notification.text}
+                active={notification.active} 
               />
             ))}
           </div>

@@ -9,7 +9,9 @@ function Profiles() {
     const swipeHandlers = useSwipeable({
       onSwipedLeft: () => {
         navigate('/');
-      }
+      },
+      delta: 50,  
+      trackMouse: true, 
     });
 
   return (

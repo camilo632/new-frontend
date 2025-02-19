@@ -3,6 +3,12 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import alarm from "../../assets/Notifications/alarm.png";
 import { motion } from "motion/react"
+import wifi_4_bars from "../../assets/Wifi/wifi-4-bars.svg";
+
+
+
+const API_KEY = "ceed50612a02a7adff8f033c86edba0f"; // Reemplázala con tu clave
+const API_URL = `https://api.openweathermap.org/data/2.5/weather?q=Paris,fr&units=metric&appid=${API_KEY}`;
 
 interface NavbarProps {
   activeNotification: number;
@@ -24,32 +30,58 @@ function Navbar({ activeNotification }: NavbarProps) {
     return () => clearInterval(interval); 
   }, []);
 
+  const [temperature, setTemperature] = useState<number | null>(null);
+  const [weatherIcon, setWeatherIcon] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchWeather = async () => {
+      try {
+        const response = await fetch(API_URL);
+        const data = await response.json();
+        setTemperature(data.main.temp.toFixed(1));
+        // setWeatherIcon(`https://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png`);
+      } catch (err) {
+        setTemperature(null);
+        setWeatherIcon(null);
+      } 
+    };
+
+    fetchWeather();
+  }, []);
+
   return (
-    <div className='navbar w-full px-5 bg-gray-900'>
+    <div className='navbar w-full px-15 bg-gray-900'>
       <div className='flex justify-start items-center text-white'>
-        <span></span>
+        {
+            activeNotification === 1 ? (
+              <motion.img 
+                src={alarm} 
+                onClick={goToNotificationsPage}
+                className='h-10 px-3' 
+                animate={{ opacity: [1, 0, 1] }} 
+                transition={{
+                  duration: 1,   
+                  repeat: Infinity, 
+                  repeatType: "loop" 
+                }}
+              />
+            ) : null
+          }
       </div>
-      <div className='flex justify-center items-center'>
+
+      <div className='flex justify-center items-center gap-3'>
         <p className='text-5xl text-white'>{time}</p> 
       </div>
-      <div className='flex justify-end items-center'>
-        {
-          activeNotification === 1 ? (
-            <motion.img 
-              src={alarm} 
-              onClick={goToNotificationsPage}
-              className='h-10 px-3' 
-              animate={{ opacity: [1, 0, 1] }} 
-              transition={{
-                duration: 1,   
-                repeat: Infinity, 
-                repeatType: "loop" 
-              }}
-            />
-          ) : null
-        }
-        <span className='px-3 text-2xl text-white'>Paris</span>
-        <span className='px-3 text-2xl text-white'>25 C°</span>
+
+      <div className='flex justify-evenly items-center'>
+        <div>
+          <span className='px-3 text-2xl text-white'>Paris</span>
+          {temperature && <span className='px-3 text-2xl text-white'>{temperature} °C</span>}
+          {/* {weatherIcon && <img src={weatherIcon} alt="Weather" className="h-11 right-0 bg-gray-400 rounded-full" />} */}
+        </div>
+        <div>
+          <img src={wifi_4_bars} alt="wifi" className='h-9'/>
+        </div>
       </div>
     </div>
   );

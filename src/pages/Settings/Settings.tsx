@@ -15,7 +15,9 @@ function Settings() {
   const swipeHandlers = useSwipeable({
       onSwipedRight: () => {
         navigate('/notifications');
-      }
+      },
+      delta: 50,  
+      trackMouse: true, 
     });
 
   return (
@@ -35,12 +37,16 @@ function Settings() {
             <p className='text-3xl'>Mises à jour</p>
           </div>
           <div>
-            <p className='text-5xl text-amber-500 font-bold'>OS 18.0</p>
+            <motion.p className='text-6xl text-amber-500 font-bold'
+              whileTap={{ scale: 0.90}} 
+              transition={{ type: "spring", stiffness: 500 }}
+              
+            >OS 18.0</motion.p>
           </div>
           <motion.button
               className='border-3 p-4 rounded-2xl text-xl'
-              whileTap={{ scale: 0.90 }}  // Escala al hacer clic
-              transition={{ type: "spring", stiffness: 300 }}
+              whileTap={{ scale: 0.85 }} 
+              transition={{ type: "spring", stiffness: 200 }}
           >
             Mettre à jour
           </motion.button>
@@ -58,8 +64,8 @@ function Settings() {
           </div>
           <motion.button
               className='border-3 p-4 rounded-2xl text-xl'
-              whileTap={{ scale: 0.90 }}  // Escala al hacer clic
-              transition={{ type: "spring", stiffness: 300 }}
+              whileTap={{ scale: 0.85 }} 
+              transition={{ type: "spring", stiffness: 200 }}
           >
             Redémarrer
           </motion.button>
@@ -81,8 +87,8 @@ function Settings() {
             <motion.img
               src={right_arrow_svg}
               className="h-25"
-              whileTap={{ scale: 0.90 }}  // Escala al hacer clic
-              transition={{ type: "spring", stiffness: 300 }}
+              whileTap={{ scale: 0.85 }} 
+              transition={{ type: "spring", stiffness: 200 }}
             />
           </div>
         </div>        
