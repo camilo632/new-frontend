@@ -13,10 +13,6 @@ function Notification({ img, text, active }: NotificationProps) {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
-  useEffect(() =>{
-    console.log(active);
-  }, [active]);
-
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {

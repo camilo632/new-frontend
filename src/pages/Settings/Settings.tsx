@@ -5,7 +5,6 @@ import dev_svg from "../../assets/Settings/dev.svg"
 import right_arrow_svg from "../../assets/Settings/right-arrow.svg"
 import { useNavigate } from 'react-router-dom';
 import { motion } from "motion/react"
-// @ts-ignore
 import { useSwipeable } from 'react-swipeable';
 
 function Settings() {

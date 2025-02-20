@@ -3,7 +3,6 @@ import Notification from '../../components/Notification/Notification';
 import notification_bell_off from "../../assets/Notifications/notification-bell-off.svg";
 import { motion } from "motion/react"
 import { useNavigate } from 'react-router-dom';
-// @ts-ignore
 import { useSwipeable } from 'react-swipeable';
 
 interface NotificationType {

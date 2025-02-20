@@ -12,6 +12,7 @@ function NavbarBottom() {
   const location = useLocation();
   const [showNavbarBottom, setShowNavbarBottom] = useState<boolean>(true);
   const [startY, setStartY] = useState<number | null>(null);
+  const [timeoutKey, setTimeoutKey] = useState<number>(0);
 
   const tabs = [
     { path: "/profiles", icon: profiles_svg, label: "Profils" },
@@ -20,48 +21,45 @@ function NavbarBottom() {
     { path: "/settings", icon: settings_svg, label: "Paramètres" },
   ];
 
+  //Navigate to another page to show navbar (bottom navbar)
   useEffect(() => {
-    // Muestra el navbar cuando se cambia la ruta
     setShowNavbarBottom(true);
-    const timeout = setTimeout(() => {
-      setShowNavbarBottom(false);
-    }, 2000);
-  
-    return () => clearTimeout(timeout);
+    setTimeoutKey(prev => prev + 1);
   }, [location.pathname]);
   
+  //Swipe up to show navbar (bottom navbar)
   useEffect(() => {
     const handleTouchStart = (e: TouchEvent) => {
-      if (e.touches[0].clientY > 550 ) {
+      if (e.touches[0].clientY > 550 ) { 
         setStartY(e.touches[0].clientY);
-        console.log(e.touches[0].clientY);
+        // console.log(e.touches[0].clientY);
       }
     };
   
     const handleTouchEnd = (e: TouchEvent) => {
-      if (startY && ((startY - e.changedTouches[0].clientY > 15) && (e.changedTouches[0].clientY > 400) )) {
-        console.log(e.changedTouches[0].clientY);
+      if (startY && ((startY - e.changedTouches[0].clientY > 15) && (e.changedTouches[0].clientY > 380) )) {
+        // console.log(e.changedTouches[0].clientY);
         setStartY(null);
         setShowNavbarBottom(true);
-  
-        // Agregar el delay de 2 segundos antes de ocultar el navbar
-        const timeout = setTimeout(() => {
-          setShowNavbarBottom(false);
-        }, 2000);
-  
-        return () => clearTimeout(timeout);
+        setTimeoutKey(prev => prev + 1);
       }
       setStartY(null);
     };
-  
     window.addEventListener("touchstart", handleTouchStart);
     window.addEventListener("touchend", handleTouchEnd);
-  
     return () => {
       window.removeEventListener("touchstart", handleTouchStart);
       window.removeEventListener("touchend", handleTouchEnd);
     };
   }, [startY]);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setShowNavbarBottom(false);
+    }, 2500);
+
+  return () => clearTimeout(timeout);
+  }, [timeoutKey]);
   
 
   return (

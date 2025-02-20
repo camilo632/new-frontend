@@ -75,7 +75,7 @@ function App() {
     else{
       setActiveNotification(0); 
     }
-  }, [notifications]); 
+  }, [originalNotifications]); 
 
   return (
     <Router>
