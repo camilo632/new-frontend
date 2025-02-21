@@ -22,28 +22,28 @@ function Settings() {
   return (
     <div 
     {...swipeHandlers}
-    className='settings-container  flex justify-center items-center flex-col p-10 gap-5 bg-gray-300'>
-      <div className='h-1/5 w-full bg-white rounded-3xl shadow-xl flex justify-center items-center'>
-        <h1 className='font-bold text-5xl'>Paramètres</h1>
+    className='settings-container  flex justify-center items-center flex-col p-10 gap-5 bg-gradient-to-b from-gray-900 to-black'>
+      <div className='h-1/5 w-full bg-gray-900 rounded-3xl shadow-xl flex justify-center items-center border-5 border-gray-700'>
+        <h1 className='font-bold text-5xl text-white'>Paramètres</h1>
       </div>
 
-      <div className='h-4/5 w-full bg-white rounded-3xl grid grid-rows-3 shadow-xl'>
-        <div className='w-full border-b-3 border-gray-300 settings-div'>
+      <div className='h-4/5 w-full bg-gray-900 rounded-3xl grid grid-rows-3 shadow-xl border-5 border-gray-700'>
+        <div className='w-full border-b-5 border-gray-700 settings-div'>
           <div>
             <img src={settings_svg} className='h-22'/>
           </div>
           <div className='h-full w-full flex justify-start items-center'>
-            <p className='text-3xl'>Mises à jour</p>
+            <p className='text-3xl text-white'>Mises à jour</p>
           </div>
           <div>
-            <motion.p className='text-6xl text-amber-500 font-bold'
+            <motion.p className='text-6xl text-indigo-500 font-bold'
               whileTap={{ scale: 0.90}} 
               transition={{ type: "spring", stiffness: 500 }}
               
             >OS 18.0</motion.p>
           </div>
           <motion.button
-              className='border-3 p-4 rounded-2xl text-xl'
+              className='border-3 p-4 rounded-2xl text-xl text-cyan-500'
               whileTap={{ scale: 0.85 }} 
               transition={{ type: "spring", stiffness: 200 }}
           >
@@ -52,17 +52,17 @@ function Settings() {
           
         </div>
 
-        <div className='w-full border-b-3 border-gray-300 settings-div'>
+        <div className='w-full border-b-5 border-gray-700 settings-div'>
           <div>
             <img src={reboot_svg} className='h-20'/>
           </div>
           <div className='h-full w-full flex justify-start items-center'>
-            <p className='text-3xl w-full'>Redémarrer</p>
+            <p className='text-3xl w-full text-white'>Redémarrer</p>
           </div>
           <div className=''>
           </div>
           <motion.button
-              className='border-3 p-4 rounded-2xl text-xl'
+              className='border-3 p-4 rounded-2xl text-xl text-cyan-500'
               whileTap={{ scale: 0.85 }} 
               transition={{ type: "spring", stiffness: 200 }}
           >
@@ -76,7 +76,7 @@ function Settings() {
             <img src={dev_svg} className='h-25'/>
           </div>
           <div className='h-full w-full flex justify-start items-center'>
-            <p className='text-3xl'>Options de développement</p>
+            <p className='text-3xl text-white'>Options de développement</p>
           </div>
 
           <div className=''>

@@ -16,7 +16,7 @@ function Profiles() {
   return (
     <div 
     {...swipeHandlers}
-    className='home'
+    className='home bg-gradient-to-b from-gray-900 to-black'
     >
       Profiles
     </div>

@@ -32,55 +32,46 @@ const originalNotifications: NotificationType[] = [
   { id: 6, img: warning, text: "Warning 3", active: false },
   { id: 7, img: warning, text: "Warning 4", active: false },
   { id: 8, img: warning, text: "Warning 5", active: false },
-  { id: 9, img: warning, text: "Warning 6", active: false },
-  { id: 10, img: alarm, text: "Alarm 4", active: false },
-  { id: 11, img: alarm, text: "Alarm 5", active: false },
-  { id: 12, img: alarm, text: "Alarm 6", active: false },
-  { id: 13, img: alarm, text: "Alarm 7", active: false },
-  { id: 14, img: alarm, text: "Alarm 8", active: false },
+  // { id: 9, img: warning, text: "Warning 6", active: false },
+  // { id: 10, img: alarm, text: "Alarm 4", active: false },
+  // { id: 11, img: alarm, text: "Alarm 5", active: false },
+  // { id: 12, img: alarm, text: "Alarm 6", active: false },
+  // { id: 13, img: alarm, text: "Alarm 7", active: false },
+  // { id: 14, img: alarm, text: "Alarm 8", active: false },
 ];
 
 function App() {
-  const [activeNotification, setActiveNotification] = useState<number>(0);
   const [notifications, setNotifications] = useState<NotificationType[]>([]);
   const [adding, setAdding] = useState(true);
   
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setNotifications((prev) => {
-        if (adding) {
-          if (prev.length < originalNotifications.length) {
-            return [...prev, originalNotifications[prev.length]];
-          } else {
-            setAdding(false);
-            return prev;
-          }
-        } else {
-          if (prev.length > 0) {
-            return prev.slice(1); // Eliminar la primera notificación
-          } else {
-            setAdding(true);
-            return prev;
-          }
-        }
-      });
-    }, 1000);
-    return () => clearInterval(interval);
-  }, [adding]);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setNotifications((prev) => {
+  //       if (adding) {
+  //         if (prev.length < originalNotifications.length) {
+  //           return [...prev, originalNotifications[prev.length]];
+  //         } else {
+  //           setAdding(false);
+  //           return prev;
+  //         }
+  //       } else {
+  //         if (prev.length > 0) {
+  //           return prev.slice(1); // Eliminar la primera notificación
+  //         } else {
+  //           setAdding(true);
+  //           return prev;
+  //         }
+  //       }
+  //     });
+  //   }, 1000);
+  //   return () => clearInterval(interval);
+  // }, [adding]);
 
-   useEffect(() => {
-    if (notifications.length > 0) {
-      setActiveNotification(1);
-    }
-    else{
-      setActiveNotification(0); 
-    }
-  }, [originalNotifications]); 
 
   return (
     <Router>
       <Suspense fallback={<div>Cargando...</div>}>
-      <Navbar activeNotification={activeNotification} />
+      <Navbar notifications={originalNotifications} />
         <Routes>
           <Route path="/" element={<Home/>} />
           <Route path="/notifications" element={<Notifications notifications={originalNotifications}/>} />

@@ -34,12 +34,11 @@ function Notification({ img, text, active }: NotificationProps) {
 
           <motion.div
             
-            className='notification h-25 bg-indigo-950 rounded-2xl'
-            // whileTap={{ scale: 0.90 }}
+            className='notification h-25 bg-gray-900 rounded-2xl border-5 border-gray-700'
+            whileTap={{ scale: 0.90 }}
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0 }}
-            transition={{ duration: 0.2, delay:0.1 }}
             
           >
               <>
@@ -86,12 +85,11 @@ function Notification({ img, text, active }: NotificationProps) {
         ): 
           <motion.div
             
-            className='notification h-25 bg-slate-950 rounded-2xl opacity-20'
+            className='notification h-25 bg-transparent rounded-2xl opacity-20 border-5 border-gray-800'
             // whileTap={{ scale: 0.90 }}
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0 }}
-            transition={{ duration: 0.2, delay:0.1 }}
             
           >
               <>
@@ -116,7 +114,7 @@ function Notification({ img, text, active }: NotificationProps) {
       )
       :
       (
-        <div className="h-25 w-full bg-white"></div>
+        <div className="h-25 w-full bg-gray-950"></div>
       )
     }
     </div>

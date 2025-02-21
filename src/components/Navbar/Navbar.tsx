@@ -5,23 +5,46 @@ import alarm from "../../assets/Notifications/alarm.png";
 import { motion } from "motion/react"
 import moment from 'moment-timezone';
 import wifi_4_bars from "../../assets/Wifi/wifi-4-bars.svg";
-import API from '../../hooks/API/API';
+// import API from '../../hooks/API/API';
 
 // API key and url to have access to the weather (Paris)
-const API_KEY = "ceed50612a02a7adff8f033c86edba0f"; 
-const API_URL = `https://api.openweathermap.org/data/2.5/weather?q=Paris,fr&units=metric&appid=${API_KEY}`;
+// const API_KEY = "ceed50612a02a7adff8f033c86edba0f"; 
+// const API_URL = `https://api.openweathermap.org/data/2.5/weather?q=Paris,fr&units=metric&appid=${API_KEY}`;
 
-interface NavbarProps {
-  activeNotification: number; // This prop shows the little icon on the navbar whenever there's an active alarm/warning
+// interface NavbarProps {
+//   activeNotification: number; // This prop shows the little icon on the navbar whenever there's an active alarm/warning
+// }
+
+interface NotificationType {
+  id: number;
+  img: string;
+  text: string;
+  active: boolean;
 }
 
-function Navbar({ activeNotification }: NavbarProps) {
+interface NavbarProps {
+  notifications: NotificationType[];
+}
+
+function Navbar({ notifications }: NavbarProps) {
+
+    const [activeNotification, setActiveNotification] = useState<number>(0);
+  
 
   // Swipe gesture to change page
   const navigate = useNavigate();
   const goToNotificationsPage = () => {
     navigate('/notifications');  
   };
+
+  useEffect(() => {
+    if (notifications.length > 0) {
+      setActiveNotification(1);
+    }
+    else{
+      setActiveNotification(0); 
+    }
+  }, [notifications]); 
 
   // Variables to save current time and temperature
   const [currentTime, setCurrentTime] = useState<string>("");

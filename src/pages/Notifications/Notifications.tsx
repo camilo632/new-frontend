@@ -35,7 +35,7 @@ function Notifications({ notifications }: NotificationsProps) {
   return (
     <div 
     {...swipeHandlers}
-    className='notification-list-container flex flex-col justify-center items-center'>
+    className='notification-list-container flex flex-col justify-center items-center bg-gradient-to-b from-gray-900 to-black'>
         {notifications && notifications.length > 0 ? (
           <div className='notification-list w-full h-full py-15'>
             {notifications.map((notification) => (
@@ -56,7 +56,7 @@ function Notifications({ notifications }: NotificationsProps) {
             <img src={notification_bell_off}/>
           </motion.div>
             <div className='mt-5'>
-              <p className='text-4xl text-gray-400'>Il n'y a pas de notifications.</p>
+              <p className='text-4xl text-gray-500'>Il n'y a pas de notifications.</p>
             </div>
           </div> 
         )}
