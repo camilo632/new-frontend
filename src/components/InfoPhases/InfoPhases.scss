@@ -1,0 +1,11 @@
+.info-phases-container{
+    display: grid;
+    grid-template-rows: 30% 1fr;
+}
+.info-phases{
+    li{
+        color: rgb(6, 182, 212);
+        font-size: 30px;
+        font-weight: bold;
+    }
+}

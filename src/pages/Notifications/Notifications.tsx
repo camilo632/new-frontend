@@ -22,10 +22,10 @@ function Notifications({ notifications }: NotificationsProps) {
   const navigate = useNavigate();
 
   const swipeHandlers = useSwipeable({
+    // onSwipedLeft: () => {
+    //   navigate('/settings');
+    // },
     onSwipedLeft: () => {
-      navigate('/settings');
-    },
-    onSwipedRight: () => {
       navigate('/');
     },
     delta: 50,  

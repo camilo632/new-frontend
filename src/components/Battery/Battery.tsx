@@ -1,16 +1,16 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { motion } from "motion/react"
 
 function Battery() {
 
   const textColor = "text-white";
-  const [isCharging, setIsCharging] = useState<number>(0);
+  const [isCharging] = useState<number>(1);
 
 
   //--------------------------------------------TEST-----------------------------------
-  const [count, setCount] = useState(5);
-  const [isIncreasing, setIsIncreasing] = useState(true); // Controla si el número debe aumentar o disminuir
-  const targetValue = 100; // El valor objetivo
+  const [count] = useState(70);
+  // const [isIncreasing, setIsIncreasing] = useState(true); // Controla si el número debe aumentar o disminuir
+  // const targetValue = 100; // El valor objetivo
 
   // useEffect(() => {
   //   const interval = setInterval(() => {
@@ -59,17 +59,17 @@ function Battery() {
             />
           )}
         </motion.span>
-        <div className="z-30 flex flex-row justify-between items-center">
+        <div className="flex flex-row justify-between items-center">
           <h1 className={`text-3xl ${textColor} font-bold`}>OlenMove</h1>
           <p className={`text-2xl font-bold ${textColor}`}>30 C°</p>          
           </div>
-        <div className="flex flex-col z-30">
+        <div className="flex flex-col z-10">
             <h2 className={`text-6xl ${textColor} font-bold`}>    
               {count} %
             </h2>
             <p className={`text-2xl ${textColor}`}>En charge</p>
         </div>
-        <div className="w-full flex flex-row justify-between items-end flex-rows z-30">
+        <div className="w-full flex flex-row justify-between items-end flex-rows z-10">
             <p className={`text-2xl font-bold ${textColor}`}>53.7V</p>
             <p className={`text-2xl font-bold ${textColor}`}>1.3A</p>
             <p className={`text-2xl font-bold ${textColor}`}>75W</p>

@@ -5,11 +5,17 @@
 }
 
 .home{
+    .column-1-home{
+        display: grid;
+        grid-template-rows: 1fr 8% 1fr; 
+    }
     .column-2-home{
         display: grid;
-        grid-template-rows: 1fr 1fr;
-        
-
+        grid-template-rows: 1fr 8% 1fr; 
     }
+    // .column-3-home{
+    //     display: grid;
+    //     grid-template-rows: 1fr 8% 1fr; 
+    // }
 
 }

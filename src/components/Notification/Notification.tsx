@@ -114,7 +114,7 @@ function Notification({ img, text, active }: NotificationProps) {
       )
       :
       (
-        <div className="h-25 w-full bg-gray-950"></div>
+        <div className="h-25 w-full bg-transparent"></div>
       )
     }
     </div>

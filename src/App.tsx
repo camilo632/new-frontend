@@ -1,6 +1,5 @@
 import './App.scss'
 import './index.css'
-import { useState, useEffect} from 'react';
 import { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
@@ -41,8 +40,8 @@ const originalNotifications: NotificationType[] = [
 ];
 
 function App() {
-  const [notifications, setNotifications] = useState<NotificationType[]>([]);
-  const [adding, setAdding] = useState(true);
+  // const [notifications, setNotifications] = useState<NotificationType[]>([]);
+  // const [adding, setAdding] = useState(true);
   
   // useEffect(() => {
   //   const interval = setInterval(() => {

@@ -1,5 +1,5 @@
 import "./NavbarBottom.scss";
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 
@@ -10,9 +10,9 @@ import settings_svg from "../../assets/Navbar_Bottom/settings.svg";
 
 function NavbarBottom() {
   const location = useLocation();
-  const [showNavbarBottom, setShowNavbarBottom] = useState<boolean>(false);
-  const [startY, setStartY] = useState<number | null>(null);
-  const [timeoutKey, setTimeoutKey] = useState<number>(0);
+  const [showNavbarBottom] = useState<boolean>(false);
+  // const [startY, setStartY] = useState<number | null>(null);
+  // const [timeoutKey, setTimeoutKey] = useState<number>(0);
 
   const tabs = [
     { path: "/profiles", icon: profiles_svg, label: "Profils" },

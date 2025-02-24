@@ -12,9 +12,15 @@ function Settings() {
   const navigate = useNavigate();
 
   const swipeHandlers = useSwipeable({
+      // onSwipedRight: () => {
+      //   navigate('/notifications');
+      // },
       onSwipedRight: () => {
-        navigate('/notifications');
+        navigate('/profiles');
       },
+      // onSwipedDown: () => {
+      //   navigate('/');
+      // },
       delta: 50,  
       trackMouse: true, 
     });

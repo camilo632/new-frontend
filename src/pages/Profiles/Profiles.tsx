@@ -6,8 +6,11 @@ function Profiles() {
     const navigate = useNavigate();
 
     const swipeHandlers = useSwipeable({
-      onSwipedLeft: () => {
+      onSwipedRight: () => {
         navigate('/');
+      },
+      onSwipedLeft: () => {
+        navigate('/settings');
       },
       delta: 50,  
       trackMouse: true, 
@@ -16,7 +19,7 @@ function Profiles() {
   return (
     <div 
     {...swipeHandlers}
-    className='home bg-gradient-to-b from-gray-900 to-black'
+    className='home bg-gradient-to-b from-gray-900 to-black h-full w-full text-white flex justify-center items-center bg-amber-300'
     >
       Profiles
     </div>
